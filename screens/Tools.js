@@ -19,7 +19,7 @@ const cards = [
   { name:'さら', image: require('../assets/images/Tools/Sara.jpg') },
   { name:'てーぶる', image: require('../assets/images/Tools/Table.jpg') },
   { name:'とけい', image: require('../assets/images/Tools/Tokei.jpg') },
-  { name:'はし', image: require('../assets/images/Tools/Sara.jpg') },
+  { name:'はし', image: require('../assets/images/Tools/Hasi.jpg') },
   { name:'ほん', image: require('../assets/images/Tools/Hon.jpg') },
   { name:'てぃっしゅ', image: require('../assets/images/Tools/thissyu.jpg') },
 ]

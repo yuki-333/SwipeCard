@@ -70,7 +70,7 @@ class FruitsScreen extends React.Component {
         <View style={styles.thumbnail}>
           <Image  source={this.props.image} />
         </View> 
-        <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal}>
+        <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal} >
         <View style={styles.modalBase}>
         <View style={styles.modalPanel}>
           <Text style={styles.modalContent}>{this.props.name}</Text>
