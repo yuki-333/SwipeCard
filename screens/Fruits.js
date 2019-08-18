@@ -15,6 +15,13 @@ const cards = [
   { name:'りんご', image: require('../assets/images/Fruits/Ringo.jpg') },
   { name:'かき', image: require('../assets/images/Fruits/Kaki.jpg') },
   { name:'みかん', image: require('../assets/images/Fruits/Mikan.jpg') },
+  { name:'ばなな', image: require('../assets/images/Fruits/Banana.jpg') },
+  { name:'いちご', image: require('../assets/images/Fruits/Itigo.jpg') },
+  { name:'れもん', image: require('../assets/images/Fruits/Lemon.jpg') },
+  { name:'もも', image: require('../assets/images/Fruits/Momo.jpg') },
+  { name:'なし', image: require('../assets/images/Fruits/Nasi.jpg') },
+  { name:'さくらんぼ', image: require('../assets/images/Fruits/Sakuranbo.jpg') },
+  { name:'ぱいなっぷる', image: require('../assets/images/Fruits/Pineapple.jpg') },
 ]
 
 export default class App extends React.Component {
@@ -36,7 +43,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.base}>
       <SwipeCards
-        renderCard={(cardData) => <Fruits {...cardData} />}
+        renderCard={(cardData) => <FruitsScreen {...cardData} />}
         cards={this.state.cards}
         loop={true}
         showYup={false}
@@ -49,7 +56,7 @@ export default class App extends React.Component {
   }
 }
 
-class Fruits extends React.Component {
+class FruitsScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +70,7 @@ class Fruits extends React.Component {
         <View style={styles.thumbnail}>
           <Image  source={this.props.image} />
         </View> 
-        <Modal animationType="fade" transparent={true} visible={this.state.modal}>
+        <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal}>
         <View style={styles.modalBase}>
         <View style={styles.modalPanel}>
           <Text style={styles.modalContent}>{this.props.name}</Text>

@@ -12,14 +12,21 @@ import { scale, verticalScale, } from 'react-native-size-matters';
 import SwipeCards from 'react-native-swipe-cards';
 
 const cards = [
-  { name:'りんご', image: require('../assets/images/Fruits/Ringo.jpg') },
-  { name:'かき', image: require('../assets/images/Fruits/Kaki.jpg') },
-  { name:'みかん', image: require('../assets/images/Fruits/Mikan.jpg') },
+  { name:'だいこん', image: require('../assets/images/Veges/Daikon.jpg') },
+  { name:'ほうれんそう', image: require('../assets/images/Veges/Hourennsou.jpg') },
+  { name:'きゃべつ', image: require('../assets/images/Veges/Kyabetu.jpg') },
+  { name:'とまと', image: require('../assets/images/Veges/Tomato.jpg') },
+  { name:'たまねぎ', image: require('../assets/images/Veges/Tamanegi.jpg') },
+  { name:'きゅうり', image: require('../assets/images/Veges/Kyuri.jpg') },
+  { name:'れんこん', image: require('../assets/images/Veges/Renkon.jpg') },
+  { name:'なす', image: require('../assets/images/Veges/Nasu.jpg') },
+  { name:'にんじん', image: require('../assets/images/Veges/Ninjin.jpg') },
+  { name:'とうもろこし', image: require('../assets/images/Veges/Toumorokosi.jpg') },
 ]
 
 export default class App extends React.Component {
   static navigationOptions = {
-    title: '果物',
+    title: '野菜',
     headerStyle: {backgroundColor: 'lightskyblue',},
     headerTintColor: 'white',
   };
@@ -36,7 +43,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.base}>
       <SwipeCards
-        renderCard={(cardData) => <Fruits {...cardData} />}
+        renderCard={(cardData) => <VegeScreen {...cardData} />}
         cards={this.state.cards}
         loop={true}
         showYup={false}
@@ -49,7 +56,7 @@ export default class App extends React.Component {
   }
 }
 
-class Fruits extends React.Component {
+class VegeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,8 +67,10 @@ class Fruits extends React.Component {
   render() {
     return (
       <View style={styles.cardBase}>
-        <Image style={styles.thumbnail} source={this.props.image} />
-        <Modal animationType="fade" transparent={true} visible={this.state.modal}>
+        <View style={styles.thumbnail}>
+          <Image  source={this.props.image} />
+        </View> 
+        <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal}>
         <View style={styles.modalBase}>
         <View style={styles.modalPanel}>
           <Text style={styles.modalContent}>{this.props.name}</Text>
@@ -113,6 +122,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     borderRadius: 10,
     borderColor: 'lightskyblue',
+    backgroundColor: 'white',
   },
   cardButonBase: {
     flex: 1,
